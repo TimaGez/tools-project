@@ -18,7 +18,7 @@ export default function NumberSystems() {
                 setSecondConversionTitle("Hexadecimal");
 
                 // Set Values
-                setFirstConversionVal(parseInt(userInput, 2)).toString(16);
+                setFirstConversionVal(parseInt(userInput).toString(2))
                 setSecondConversionVal(parseInt(userInput).toString(16).toUpperCase());
                 break;
             case "2":
