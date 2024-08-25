@@ -1,55 +1,50 @@
 import '../App.css'
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 export default function NumberSystems() {
     const [userInput, setUserInput] = useState('');
-    const [checkBinary, setCheckBinary] = useState(false);
-    const [checkDecimal, setCheckDecimal] = useState(false);
-    const [checkHex, setCheckHex] = useState(false);
-    const [output1, setOutput1] = useState('Output 1 title');
-    const [output2, setOutput2] = useState('Output 2 title');
-    const [output1Val, setOutput1Val] = useState('');
-    const [output2Val, setOutput2Val] = useState('');
-    
-    var calc = document.getElementById('calculate');
-    useEffect(() => {
-            if (checkBinary && !checkDecimal && !checkHex) {
-                calc.addEventListener('click', () => {
-                    setOutput1('Decimal');
-                    setOutput2('Hexadecimal');
-                    setOutput1Val(parseInt(userInput, 2));
-                    setOutput2Val(parseInt(userInput, 2).toString(16));
-                });
-            } else if (checkDecimal && !checkBinary && !checkHex) {
-                calc.addEventListener('click', () => {
-                    setOutput1('Binary');
-                    setOutput2('Hexadecimal');
-                    setOutput1Val(parseInt(userInput).toString(2));
-                    setOutput2Val(parseInt(userInput).toString(16));
-                });
-            } else if (checkHex && !checkBinary && !checkDecimal) {
-                calc.addEventListener('click', () => {
-                    setOutput1('Binary');
-                    setOutput2('Decimal');
-                    setOutput1Val(parseInt(userInput, 16).toString(2));
-                    setOutput2Val(parseInt(userInput, 16));
-                });
-            } else if (!checkBinary && !checkDecimal && !checkHex) {
-                setOutput1('');
-                setOutput2('');
-                setOutput1Val('');
-                setOutput2Val('');
-            } else {
-                //document.getElementById('calculate').onclick = () => {
-                setOutput1('Select only one input type');
-                setOutput2('Select only one input type');
-            } 
-    } , [checkBinary, checkDecimal, checkHex]); 
+    const inputTypeRef = useRef(0)
+
+    const [firstConversionTitle, setFirstConversionTitle] = useState("");
+    const [secondConversionTitle, setSecondConversionTitle] = useState("");
+    const [firstConversionVal, setFirstConversionVal] = useState("");
+    const [secondConversionVal, setSecondConversionVal] = useState("");
+
+    const startConversion = () => {
+        switch (inputTypeRef.current.value) {
+            case "1":
+                // Set titles
+                setFirstConversionTitle("Binary");
+                setSecondConversionTitle("Hexadecimal");
+
+                // Set Values
+                setFirstConversionVal(parseInt(userInput).toString(2))
+                setSecondConversionVal(parseInt(userInput).toString(16).toUpperCase());
+                break;
+            case "2":
+                // Set titles
+                setFirstConversionTitle("Decimal");
+                setSecondConversionTitle("Hexadecimal");
+
+                // Set Values
+                setFirstConversionVal(parseInt(userInput, 2))
+                setSecondConversionVal(parseInt(userInput).toString(16).toUpperCase());
+                break;
+            case "3":
+                // Set titles
+                setFirstConversionTitle("Binary");
+                setSecondConversionTitle("Decimal");
+
+                // Set Values
+                setFirstConversionVal(parseInt(userInput, 16).toString(2))
+                setSecondConversionVal(parseInt(userInput, 16))
+                break;
+        }
+    }
 
     return (
         <>
-            <h1 id="num-sys-head">Number Systems Converter</h1>
-            <h3>Input:</h3>
+            <h1 className="title">Number Systems Converter</h1>
             <input
                 type="text"
                 placeholder='Type your number here'
@@ -57,37 +52,28 @@ export default function NumberSystems() {
                 value={userInput}
                 onChange={(event) => setUserInput(event.target.value)}
             />
-            <h4>Select your input type:</h4>
-            <div id="checks">
-                <input
-                    type="checkbox"
-                    id="binary"
-                    checked={checkBinary}
-                    onChange={(event) => setCheckBinary(event.target.checked)}
-                />
-                <label htmlFor="binary">Binary</label>
-                <input
-                    type="checkbox"
-                    id="decimal"
-                    checked={checkDecimal}
-                    onChange={(event) => setCheckDecimal(event.target.checked)}
-                />
-                <label htmlFor="decimal">Decimal</label>
-                <input
-                    type="checkbox"
-                    id="hex"
-                    checked={checkHex}
-                    onChange={(event) => setCheckHex(event.target.checked)}
-                />
-                <label htmlFor="hex">Hexadecimal</label>
+            <div className="input-group mb-3">
+                <span class="input-group-text">Input Type</span>
+                <select class="form-select" aria-label="input type selector" ref={inputTypeRef}>
+                    <option value="1">Decimal</option>
+                    <option value="2">Binary</option>
+                    <option value="3">Hexadecimal</option>
+                </select>
             </div>
+            
+            <button onClick={startConversion}>Calculate</button>
 
-            <button id='calculate'>Calculate</button>
+            <div style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
+                <div style={{ marginRight: "5px" }}>
+                    <h3>{firstConversionTitle}</h3>
+                    <p>{firstConversionVal}</p>
+                </div>
 
-            <h3 id='output1'>{output1}</h3>
-            <p>{output1Val}</p>
-            <h3 id="output2">{output2}</h3>
-            <p>{output2Val}</p>
+                <div>
+                    <h3>{secondConversionTitle}</h3>
+                    <p>{secondConversionVal}</p>
+                </div>
+            </div>
         </>
     );
 }
