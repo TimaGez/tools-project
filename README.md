@@ -1,6 +1,6 @@
 # Tools Project
 
-The Tools Project is an open-source project with pages helping with conversions and such
+The Tools Project is an open-source (MIT License) project with pages helping with conversions and such
 
 ## Authors
 
