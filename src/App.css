@@ -1,0 +1,58 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(40, 40, 40);
+  /* color: white;
+  text-align: center; */
+}
+
+.home-buttons {
+  background-color: teal;
+  color: white;
+  width: 200px;
+  height: 130px;
+  border-radius: 10px;
+  font-size: 150%;
+  font-family: monospace;
+  border: 3px solid white;
+}
+
+#home-heads {
+  font-family: monospace;
+}
+
+#home-head {
+  margin-top: -300px;
+}
+
+#home-head2 {
+  font-size: 25px;
+}
+
+#home-head3 {
+  font-size: 20px;
+}
+
+#num-sys-head {
+  margin-top: -100px;
+}
+
+#binary {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#decimal {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#hex {
+  margin-right: 10px;
+  margin-left: 10px;
+}
