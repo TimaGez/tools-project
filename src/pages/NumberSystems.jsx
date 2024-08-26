@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 export default function NumberSystems() {
     const [userInput, setUserInput] = useState('');
     const [invalidInput, setInvalidInput] = useState(false);
-    const inputTypeRef = useRef(0)
+    const inputTypeRef = useRef("")
 
     const [firstConversionTitle, setFirstConversionTitle] = useState("");
     const [secondConversionTitle, setSecondConversionTitle] = useState("");
@@ -41,7 +41,7 @@ export default function NumberSystems() {
                 setSecondConversionTitle("Hexadecimal");
 
                 // Set Values
-                setFirstConversionVal(parseInt(userInput, 2))
+                setFirstConversionVal(BigInt(`0x${userInput}`).toString(2))
                 setSecondConversionVal(parseInt(userInput, 2).toString(16).toUpperCase());
                 break;
             case "3": // Hex
@@ -51,50 +51,53 @@ export default function NumberSystems() {
                     break;
                 }
                 setInvalidInput(false);
+
                 // Set titles
                 setFirstConversionTitle("Binary");
                 setSecondConversionTitle("Decimal");
 
                 // Set Values
-                setFirstConversionVal(parseInt(userInput, 16).toString(2))
-                setSecondConversionVal(parseInt(userInput, 16))
+                setFirstConversionVal(BigInt(`0x${userInput}`).toString(2))
+                setSecondConversionVal(BigInt(`0x${userInput}`).toString(10))
                 break;
         }
     }
 
     return (
         <>
-            <h1 className="title">Number Systems Converter</h1>
-            <input
-                type="text"
-                placeholder='Type your number here'
-                id="text"
-                value={userInput}
-                onChange={(event) => setUserInput(event.target.value)}
-            />
-            <div className="input-group mb-3">
-                <span className="input-group-text">Input Type</span>
-                <select className="form-select" aria-label="input type selector" ref={inputTypeRef}>
-                    <option value="1">Decimal</option>
-                    <option value="2">Binary</option>
-                    <option value="3">Hexadecimal</option>
-                </select>
-            </div>
-
-            <button onClick={startConversion}>Calculate</button>
+            <form onSubmit={startConversion}>
+                <h1 className="title">Number Systems Converter</h1>
+                <input
+                    type="text"
+                    placeholder='Type your number here'
+                    id="text"
+                    value={userInput}
+                    onChange={(event) => setUserInput(event.target.value)}
+                />
+                <div className="input-group mb-3 form">
+                    <span className="input-group-text">Input Type</span>
+                    <select className="form-select" aria-label="input type selector" ref={inputTypeRef}>
+                        <option selected>Select an Input Type</option>
+                        <option value="1">Decimal</option>
+                        <option value="2">Binary</option>
+                        <option value="3">Hexadecimal</option>
+                    </select>
+                </div>
+                <button type="submit">Calculate</button>
+            </form>
 
             {invalidInput ? (
                 <h2>Invalid Input</h2>
             ) : (
                 <div style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
                     <div style={{ marginRight: "5px" }}>
-                        <h3>{firstConversionTitle}</h3>
-                        <p>{firstConversionVal}</p>
+                        <h3 className='titles'>{firstConversionTitle}</h3>
+                        <p className='values'>{firstConversionVal}</p>
                     </div>
 
                     <div>
-                        <h3>{secondConversionTitle}</h3>
-                        <p>{secondConversionVal}</p>
+                        <h3 className='titles'>{secondConversionTitle}</h3>
+                        <p className='values'>{secondConversionVal}</p>
                     </div>
                 </div>
             )}

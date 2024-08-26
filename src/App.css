@@ -64,3 +64,11 @@ body {
   margin-left: 10px;
 }
 
+.titles {
+  margin: 10px;
+}
+
+.values {
+  width: 500px;
+  word-wrap: break-word;
+}
