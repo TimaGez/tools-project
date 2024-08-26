@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 
 export default function NumberSystems() {
     const [userInput, setUserInput] = useState('');
+    const [invalidInput, setInvalidInput] = useState(false);
     const inputTypeRef = useRef(0)
 
     const [firstConversionTitle, setFirstConversionTitle] = useState("");
@@ -12,7 +13,13 @@ export default function NumberSystems() {
 
     const startConversion = () => {
         switch (inputTypeRef.current.value) {
-            case "1":
+            case "1": // Decimal
+                if (isNaN(userInput)) {
+                    setInvalidInput(true);
+                    break;
+                }
+                setInvalidInput(false);
+
                 // Set titles
                 setFirstConversionTitle("Binary");
                 setSecondConversionTitle("Hexadecimal");
@@ -21,7 +28,14 @@ export default function NumberSystems() {
                 setFirstConversionVal(parseInt(userInput).toString(2))
                 setSecondConversionVal(parseInt(userInput).toString(16).toUpperCase());
                 break;
-            case "2":
+            case "2": // Binary
+                const regex = /^[01]+$/;
+                if (!regex.test(userInput)) {
+                    setInvalidInput(true);
+                    break;
+                }
+                setInvalidInput(false);
+
                 // Set titles
                 setFirstConversionTitle("Decimal");
                 setSecondConversionTitle("Hexadecimal");
@@ -30,7 +44,13 @@ export default function NumberSystems() {
                 setFirstConversionVal(parseInt(userInput, 2))
                 setSecondConversionVal(parseInt(userInput, 2).toString(16).toUpperCase());
                 break;
-            case "3":
+            case "3": // Hex
+                const hex_regex = /^[0-9a-fA-F]+$/;
+                if (!hex_regex.test(userInput)) {
+                    setInvalidInput(true);
+                    break;
+                }
+                setInvalidInput(false);
                 // Set titles
                 setFirstConversionTitle("Binary");
                 setSecondConversionTitle("Decimal");
@@ -53,27 +73,31 @@ export default function NumberSystems() {
                 onChange={(event) => setUserInput(event.target.value)}
             />
             <div className="input-group mb-3">
-                <span class="input-group-text">Input Type</span>
-                <select class="form-select" aria-label="input type selector" ref={inputTypeRef}>
+                <span className="input-group-text">Input Type</span>
+                <select className="form-select" aria-label="input type selector" ref={inputTypeRef}>
                     <option value="1">Decimal</option>
                     <option value="2">Binary</option>
                     <option value="3">Hexadecimal</option>
                 </select>
             </div>
-            
+
             <button onClick={startConversion}>Calculate</button>
 
-            <div style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
-                <div style={{ marginRight: "5px" }}>
-                    <h3>{firstConversionTitle}</h3>
-                    <p>{firstConversionVal}</p>
-                </div>
+            {invalidInput ? (
+                <h2>Invalid Input</h2>
+            ) : (
+                <div style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
+                    <div style={{ marginRight: "5px" }}>
+                        <h3>{firstConversionTitle}</h3>
+                        <p>{firstConversionVal}</p>
+                    </div>
 
-                <div>
-                    <h3>{secondConversionTitle}</h3>
-                    <p>{secondConversionVal}</p>
+                    <div>
+                        <h3>{secondConversionTitle}</h3>
+                        <p>{secondConversionVal}</p>
+                    </div>
                 </div>
-            </div>
+            )}
         </>
     );
 }
