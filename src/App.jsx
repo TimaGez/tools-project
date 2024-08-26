@@ -4,9 +4,7 @@ import NumberSystems from "./pages/NumberSystems";
 
 export default function App() {
   return (
-    <BrowserRouter>
       <AppContent />
-    </BrowserRouter>
   )
 }
 
