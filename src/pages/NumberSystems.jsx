@@ -14,12 +14,7 @@ export default function NumberSystems() {
   const startConversion = () => {
     switch (inputTypeRef.current.value) {
       case "1": // Decimal
-        if (
-          isNaN(userInput) ||
-          userInput.includes("-") ||
-          userInput.includes(".") ||
-          userInput == ""
-        ) {
+        if (isNaN(userInput) || userInput.includes(".") || userInput == "") {
           setInvalidInput(true);
           break;
         }
