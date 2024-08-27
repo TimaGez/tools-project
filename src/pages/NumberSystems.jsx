@@ -41,8 +41,8 @@ export default function NumberSystems() {
                 setSecondConversionTitle("Hexadecimal");
 
                 // Set Values
-                setFirstConversionVal(BigInt(`0x${userInput}`).toString(2))
-                setSecondConversionVal(parseInt(userInput, 2).toString(16).toUpperCase());
+                setFirstConversionVal(BigInt(`0b${userInput}`).toString())
+                setSecondConversionVal(BigInt(`0b${userInput}`).toString(16).toUpperCase());
                 break;
             case "3": // Hex
                 const hex_regex = /^[0-9a-fA-F]+$/;
