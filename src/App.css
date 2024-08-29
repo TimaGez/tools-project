@@ -27,6 +27,12 @@ body {
   font-size: 150%;
   font-family: monospace;
   border: 3px solid white;
+  margin: 10px;
+}
+
+#button1 {
+  position: relative;
+  top:23.3px;
 }
 
 #home-heads {
