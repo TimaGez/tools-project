@@ -27,6 +27,12 @@ body {
   font-size: 150%;
   font-family: monospace;
   border: 3px solid white;
+  margin: 10px;
+}
+
+#button1 {
+  position: relative;
+  top:23.3px;
 }
 
 #home-heads {
@@ -38,7 +44,7 @@ body {
 }
 
 #home-head2 {
-  font-size: 25px;
+  font-size: 20.3px;
 }
 
 #home-head3 {
@@ -71,4 +77,26 @@ body {
 .values {
   width: 500px;
   word-wrap: break-word;
+}
+
+#text1 {
+  height: 40px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: rgb(60, 60, 60);
+  width: 500px;
+  margin-bottom: 15px;
+}
+
+#calc {
+  border-radius: 10px;
+  border-color: white;
+}
+
+a {
+  color: skyblue;
+}
+
+a:hover {
+  color: rgb(10, 100, 100);
 }
