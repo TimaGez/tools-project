@@ -2,8 +2,6 @@ import {
   HashRouter as Router,
   Routes,
   Route,
-  useLocation,
-  BrowserRouter,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import NumberSystems from "./pages/NumberSystems";

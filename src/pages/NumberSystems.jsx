@@ -14,7 +14,7 @@ export default function NumberSystems() {
   const startConversion = () => {
     switch (inputTypeRef.current.value) {
       case "1": // Decimal
-        if (isNaN(userInput) || userInput.includes(".") || userInput == "") {
+        if (isNaN(userInput) || userInput.includes(".") || userInput === "") {
           setInvalidInput(true);
           break;
         }
@@ -29,7 +29,7 @@ export default function NumberSystems() {
         setSecondConversionVal(parseInt(userInput).toString(16).toUpperCase());
         break;
       case "2": // Binary
-        const regex = /^[01]+$/;
+        { const regex = /^[01]+$/;
         if (!regex.test(userInput)) {
           setInvalidInput(true);
           break;
@@ -45,9 +45,9 @@ export default function NumberSystems() {
         setSecondConversionVal(
           BigInt(`0b${userInput}`).toString(16).toUpperCase()
         );
-        break;
+        break; }
       case "3": // Hex
-        const hex_regex = /^[0-9a-fA-F]+$/;
+        { const hex_regex = /^[0-9a-fA-F]+$/;
         if (!hex_regex.test(userInput)) {
           setInvalidInput(true);
           break;
@@ -61,7 +61,7 @@ export default function NumberSystems() {
         // Set Values
         setFirstConversionVal(BigInt(`0x${userInput}`).toString(2));
         setSecondConversionVal(BigInt(`0x${userInput}`).toString(10));
-        break;
+        break; }
     }
   };
 
