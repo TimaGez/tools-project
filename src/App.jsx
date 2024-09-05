@@ -6,6 +6,7 @@ import {
 import Home from "./pages/Home";
 import NumberSystems from "./pages/NumberSystems";
 import TorqueMeeting from "./pages/TorqueMeeting";
+import StatsCalculator from "./pages/StatsCalculator";
 
 export default function App() {
   return <AppContent />;
@@ -22,6 +23,7 @@ function AppContent() {
           path="/is-there-a-torque-meeting-today"
           element={<TorqueMeeting />}
         />
+        <Route exact path="/stats-calculator" element={<StatsCalculator/>} />
       </Routes>
     </Router>
   );
