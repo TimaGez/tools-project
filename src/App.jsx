@@ -1,12 +1,15 @@
-import { HashRouter as Router, Routes, Route, useLocation, BrowserRouter } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import NumberSystems from "./pages/NumberSystems";
+import TorqueMeeting from "./pages/TorqueMeeting";
 import StatsCalculator from "./pages/StatsCalculator";
 
 export default function App() {
-  return (
-      <AppContent />
-  )
+  return <AppContent />;
 }
 
 function AppContent() {
@@ -15,8 +18,13 @@ function AppContent() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/number-systems" element={<NumberSystems />} />
+        <Route
+          exact
+          path="/is-there-a-torque-meeting-today"
+          element={<TorqueMeeting />}
+        />
         <Route exact path="/stats-calculator" element={<StatsCalculator/>} />
       </Routes>
     </Router>
-  )
+  );
 }

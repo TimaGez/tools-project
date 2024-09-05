@@ -1,5 +1,5 @@
-import '../App.css'
-import { Link } from 'react-router-dom';
+import "../App.css";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -10,10 +10,13 @@ export default function Home() {
                 <h3 id="home-head3">The current resources available are: </h3>
             </div>
             <Link to={"/number-systems"}>
-                    <button id='button1'className='home-buttons'>Number Systems Converter</button>
+                    <button className='home-buttons'>Number Systems Converter</button>
             </Link>
             <Link to={"/stats-calculator"}>
-                    <button id='button2'className='home-buttons'>Statistics Calculator</button>
+                    <button className='home-buttons'>Statistics Calculator</button>
+            </Link>
+            <Link to={"/is-there-a-torque-meeting-today"}>
+              <button className="home-buttons">Torque Meeting?</button>
             </Link>
         </>
     )
