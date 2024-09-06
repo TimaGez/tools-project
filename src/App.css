@@ -35,6 +35,11 @@ body {
   top:23.3px;
 }
 
+#button3 {
+  position: relative;
+  top:23.3px;
+}
+
 #home-heads {
   font-family: monospace;
 }
@@ -99,4 +104,41 @@ a {
 
 a:hover {
   color: rgb(10, 100, 100);
+}
+
+#title1 {
+  position: relative;
+  top: -230px;
+}
+
+.mass-num {
+  height: 20px;
+  width: 30px;
+  position: relative;
+  left: -100px;
+  top: -200px;
+}
+
+.element {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  left: -90px;
+  top: -160px;
+}
+
+.atomic-num {
+  height: 20px;
+  width: 30px;
+  position: relative;
+  left: -180px;
+  top: -13px;
+}
+
+#massNum, #atomicNum {
+  font-size: 14px;
+}
+
+#element {
+  font-size: 30px;
 }
