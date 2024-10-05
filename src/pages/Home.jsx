@@ -18,6 +18,9 @@ export default function Home() {
             <Link to={"/is-there-a-torque-meeting-today"}>
               <button className="home-buttons">Torque Meeting?</button>
             </Link>
+            <Link to="/electron-config">
+                <button className='home-buttons'>Electron Configuration</button>
+            </Link>
         </>
     )
 }
