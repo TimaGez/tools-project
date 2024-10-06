@@ -1,5 +1,6 @@
 import "../App.css";
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function NumberSystems() {
   const [userInput, setUserInput] = useState("");
@@ -67,6 +68,9 @@ export default function NumberSystems() {
 
   return (
     <>
+      <Link to="/">
+        <button className="home-button">Home</button>
+      </Link>
       <form onSubmit={startConversion} noValidate>
         <h1 className="title">Number Systems Converter</h1>
         <input
