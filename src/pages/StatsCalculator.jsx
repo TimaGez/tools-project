@@ -1,6 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react';
-import { mean, median, std, min, max, round, ceil, floor } from 'mathjs';
+import { mean, median, std, min, max, ceil, floor } from 'mathjs';
+import { Link } from 'react-router-dom';
 
 export default function StatsCalculator() {
 
@@ -70,6 +71,9 @@ export default function StatsCalculator() {
 
   return(
     <>
+      <Link to="/">
+        <button className="home-button">Home</button>
+      </Link>
 			 <form onSubmit={startConversion} noValidate>
           <h1 className="title">Statistics Calculator</h1>
             <input

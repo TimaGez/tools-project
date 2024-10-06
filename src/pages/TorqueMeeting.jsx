@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function TorqueMeeting() {
   const checkMeeting = () => {
     // If today is monday thursday or saturday then yes
@@ -11,6 +13,9 @@ export default function TorqueMeeting() {
 
   return (
     <>
+      <Link to="/">
+        <button className="home-button">Home</button>
+      </Link> 
       <h1 style={{ fontWeight: "900" }}>Is there a Torque meeting today?</h1>
       <div
         style={{ display: "flex", justifyContent: "center", alignItems: "end" }}
