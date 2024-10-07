@@ -191,7 +191,7 @@ export default function ElectronConfig() {
               onChange={(event) => setUserInput(event.target.value)}
             />
             <br />
-            <button type="submit" id='ok'>OK</button>
+            <button type="submit" id='calc'>OK</button>
           </form>
 
           {invalidInput ? (

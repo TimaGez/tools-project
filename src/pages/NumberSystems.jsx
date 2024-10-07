@@ -76,11 +76,11 @@ export default function NumberSystems() {
         <input
           type="text"
           placeholder="Type your number here"
-          id="text"
+          id="text1"
           value={userInput}
           onChange={(event) => setUserInput(event.target.value)}
         />
-        <div className="input-group mb-3 form">
+        <div id='input' className="input-group mb-3 form">
           <span className="input-group-text">Input Type</span>
           <select
             className="form-select"
@@ -94,7 +94,7 @@ export default function NumberSystems() {
             <option value="3">Hexadecimal</option>
           </select>
         </div>
-        <button type="submit">Calculate</button>
+        <button type="submit" id="calc">Calculate</button>
       </form>
 
       {invalidInput ? (
