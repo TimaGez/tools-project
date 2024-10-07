@@ -56,27 +56,8 @@ body {
   font-size: 20px;
 }
 
-#num-sys-head {
-  margin-top: -100px;
-}
-
-#binary {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-#decimal {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-#hex {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.titles {
-  margin: 10px;
+.titles { /* in ElectronConfig */
+  margin: 10px; 
 }
 
 .values {
