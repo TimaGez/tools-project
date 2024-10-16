@@ -22,6 +22,8 @@ export default function Home() {
             <Link to="/electron-config">
                 <button className='home-buttons'>Electron Configuration</button>
             </Link>
+
+            <p>The Tools Project is open source on GitHub! You can find the project <a href="https://github.com/timagez/tools-project">here</a>.</p>
         </>
     )
 }
