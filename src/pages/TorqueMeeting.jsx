@@ -5,10 +5,10 @@ export default function TorqueMeeting() {
     // If today is monday thursday or saturday then yes
     const today = new Date();
     const day = today.getDay();
-    if (day === 1 || day === 4 || day === 6) {
-      return "Yes";
+    if (day === 7) {
+      return "No";
     }
-    return "No";
+    return "Yes";
   };
 
   return (
